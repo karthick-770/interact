@@ -1,0 +1,30 @@
+<div class="body">
+    <div class="container-fluid">
+         <div class="card card-container">
+         
+         <img id="profile-img" class="profile-img-card" src="assets/images/loginimg.png" />
+       <p id="profile-name" class="profile-name-card">EHSM </p>
+       <div class="alert alert-danger" *ngIf="errorMsg">
+         {{errorMsg}}
+       </div>
+       <form class="form-signin"  #ehsmForm="ngForm"  *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+ 
+           <span id="reauth-userid" class="reauth-userid"></span>
+           <input type="userid" required autofocus #userid="ngModel" 
+           [class.is-invalid]="userid.invalid && userid.touched"
+             id="userid" class="form-control" 
+              placeholder="user id" name="userid"  
+                 [(ngModel)]= "ehsmModel.userid">
+                   <small class ="text-danger"[class.d-none]="userid.valid || userid.untouched">user id is required!</small>
+           <input type="password" required #password="ngModel"
+             [class.is-invalid]="password.invalid && password.touched"
+                 id="password" class="form-control" placeholder="Password" 
+                     name="password"  [(ngModel)]= "ehsmModel.password">
+            <small class ="text-danger"[class.d-none]="password.valid || password.untouched">password is required!</small>
+         
+           <button [disabled] =" ehsmForm.form.invalid" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+       </form><!-- /form -->
+       </div><!-- /card-container -->
+       </div><!-- /container -->
+      </div>
+   

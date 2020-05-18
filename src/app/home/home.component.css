@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto&display=swap');
+.bg{
+  height:25em; 
+  background-size:cover;
+  width:auto;
+  background-color: rgba(23,23,23,0.9);
+  opacity: 1;
+  background-position:50% 50%;
+  box-shadow:inset 0 4px 85px 0 rgba(0,0,0,0.5);
+  background-image: url("E:\angular\mysapwebpage\src\assets\images\download1.jpg");
+}
+
+.headclass{
+    
+    text-align:center;
+    padding-top: 90px;
+    font-family: "Roboto",  sans-serif ;
+    margin-bottom: 10px;
+}
+h1 {
+  transition: 0.2s;
+  will-change: font-size;
+  display: inline-block;
+  margin: 0;
+  color: blue;
+  font-weight: 200;
+  font-size: 64px;
+  margin-top: -10px;
+}
+ .app-name{
+  text-align: center;
+  background: linear-gradient(to right, #7b4397,  #dc2430);
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  
+}
+p{
+    color: whitesmoke;
+    text-align: center;
+}
+
+br{
+    background:  rgba(23,23,23,0.7);
+
+}
+.body {
+    padding:0px;
+    height: 100%;
+    
+    background-color: rgba(23,23,23,0.6);
+    color: whitesmoke;
+    font-family: "Roboto",  sans-serif ;
+}
+
+a{
+    text-decoration: none;
+    color:  whitesmoke;
+    background: white;
+    font-family: "Roboto",  sans-serif ;
+    
+}
+
+hr{
+  background: linear-gradient(to right, #7b4397,  #dc2430);
+    margin:1px;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+    border: 0px;
+    height: 1px;
+}
+
+.container-fluid{
+    
+    background: #353C51;
+}
+
+
+.img-fluid {
+    opacity: 1;
+    display: block;
+    
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+ .col{ 
+   height: fit-content;
+   margin-bottom: 20px;
+   margin-top: 20px;
+   margin-left: 50px;
+   margin-right: 50px;
+ }
+ .title:hover{
+  border-bottom: 2px solid var(--pink);
+  display: inline-block;
+}
+.card {
+    /* Add shadows to 0 create the "card" effect */
+   margin-top: 30px;
+   margin-bottom:30px;
+   height:100%;
+   border: 1px  ;
+   border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    background: rgba(23,23,23,0.7);
+  }
+  .button.gradient-button {
+    position: relative;
+    border: 1px ;
+    background: linear-gradient(to right, #7b4397,  #dc2430);
+    color: #fff;
+    opacity: 0.8;
+  }
+  .button.gradient-button:hover{
+    opacity: 1;
+     transform: scale(0.8);
+    
+  }
+  .button {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    display: inline-block;
+    background: linear-gradient(to right, #7b4397,  #dc2430);
+      color: #fff;
+      font-size: 20px;
+      padding: 7px 25px;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+      border-radius: 25px;
+    
+  }
+  .picture-card{
+    height: 18rem;
+    border: 1px;
+    border-radius: 15px;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.2) ;
+    opacity:0.8;
+  }
+  #picture1{
+    background:no-repeat;
+    background-size: cover;
+    background-image:url("E:\angular\mysapwebpage\src\assets\images\employee1.jpg") ;
+  }
+  #picture2{
+    background:no-repeat;
+    background-size: cover;
+    background-image:url("E:\angular\mysapwebpage\src\assets\images\vendor.jpg") ;
+  }
+  #picture3{
+    background:no-repeat;
+    background-size: cover;
+    background-image:url("E:\angular\mysapwebpage\src\assets\images\employee1.jpg") ;
+  }
+  #picture4{
+    background:no-repeat;
+    background-size: cover;
+    background-image:url("E:\angular\mysapwebpage\src\assets\images\employee1.jpg") ;
+  }
+  #picture5{
+    background:no-repeat;
+    background-size: cover;
+    background-image:url("E:\angular\mysapwebpage\src\assets\images\shopfloor1.jpg") ;
+  }
+  #picture6{
+    background:no-repeat;
+    background-size: cover;
+    background-image:url("E:\angular\mysapwebpage\src\assets\images\ehsm.jpg") ;
+  }
+  #picture7{
+    background:no-repeat;
+    background-size: cover;
+    background-image:url("E:\angular\mysapwebpage\src\assets\images\employee1.jpg") ;
+  }
+  .text-card{
+    height: fit-content;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 5px;
+  }
+  .title{
+    font-size: 2.2rem;
+    display: inline-block;
+  }
+  #card-content{
+    font-size: 1.2rem;
+    color: grey;
+  }
+  #app-content{
+   color: gray;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+/*@media screen and (prefers-color-scheme: light) {
+    body {
+      background-color: white;
+      color: black;
+    }*/
+    @media screen and (max-device-width: 1024px) {
+      .col{ 
+        height: fit-content;
+        margin-bottom: 18px;
+        margin-top: 18px;
+        margin-left: 50px;
+        margin-right: 50px;
+        padding: 0px;
+      }
+      .title{
+        font-size: 1.5rem;
+      }
+     
+    }
+    @media screen and (max-device-width: 768px) {
+      .img-fluid {
+        opacity: 1;
+        display: block;
+        
+        transition: .5s ease;
+        backface-visibility: hidden;
+      }
+      .col{ 
+        height: fit-content;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        margin-left: 40px;
+        margin-right: 40px;
+        padding: 0px;
+      }
+     .card {
+         /* Add shadows to 0 create the "card" effect */
+        margin-top: 15px;
+        margin-bottom:15px;
+        height:100%;
+        border: 1px  ;
+        border-radius: 15px;
+         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+         transition: 0.3s;
+         background: rgba(23,23,23,0.7);
+       }
+       .button.gradient-button {
+         position: relative;
+         border: 1px ;
+         background: linear-gradient(to right, #7b4397,  #dc2430);
+         color: #fff;
+         opacity: 0.8;
+       }
+       .button.gradient-button:hover{
+        opacity: 1;
+        transform: scale(1);
+         
+       }
+       .button {
+         margin-top: 20px;
+         margin-bottom: 12px;
+         display: inline-block;
+         background: linear-gradient(to right, #7b4397,  #dc2430);
+           color: #fff;
+           font-size: 16px;
+           padding:5px 15px;
+           letter-spacing: 0.5px;
+           font-weight: 500;
+           border-radius: 25px;
+         
+       }
+       .picture-card{
+         height: 12rem;
+         border: 1px;
+         border-radius: 15px;
+         box-shadow:0 2px 4px 0 rgba(0,0,0,0.2) ;
+         background-image: url("E:\angular\mysapwebpage\src\assets\images\download.jpg");
+       }
+       .text-card{
+         height: fit-content;
+         margin-top: 10px;
+         margin-bottom: 10px;
+         margin-left: 20px;
+         margin-right: 20px;
+         padding: 3px;
+       }
+       .title{
+        font-size: 1.5rem;
+      }
+       #card-content{
+         font-size: 0.8rem;
+         color: grey;
+       }
+     
+      .bg{
+        height:21em; 
+        background-size:cover;
+        width:auto;
+        background-color: rgba(23,23,23,0.9);
+        opacity: 1;
+        background-position:50% 50%;
+        box-shadow:inset 0 4px 85px 0 rgba(0,0,0,0.5);
+        background-image: url("E:\angular\mysapwebpage\src\assets\images\download1.jpg");
+      }
+      
+      .headclass{
+          
+          text-align:center;
+          padding-top: 85px;
+          font-family: "Roboto",  sans-serif ;
+          margin-bottom: 10px;
+      }
+      h1 {
+        transition: 0.2s;
+        will-change: font-size;
+        display: inline-block;
+        margin: 0;
+        color: blue;
+        font-weight: 200;
+        font-size: 64px;
+        margin-top: -10px;
+    }
+       .app-name{
+        text-align: center;
+        background: linear-gradient(to right, #7b4397,  #dc2430);
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent;
+        
+      }
+      p{
+          color: whitesmoke;
+          text-align: center;
+      }
+     #app-content{
+       color: gray;
+       padding-left: 10px;
+       padding-right: 10px;
+     }
+    
+    }
+    
+    
+  
+@media screen and (max-device-width: 480px) {
+  .img-fluid {
+    opacity: 1;
+    display: block;
+    width: 75;
+    height: 200;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  .col{ 
+    height: fit-content;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 35px;
+    margin-right: 35px;
+    padding: 0px;
+  }
+  .title:hover{
+    border-bottom: 2px solid var(--pink);
+    
+  }
+ .card {
+     /* Add shadows to 0 create the "card" effect */
+    margin-top: 15px;
+    margin-bottom:15px;
+    height:100%;
+    border: 1px  ;
+    border-radius: 15px;
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     transition: 0.3s;
+     background: rgba(23,23,23,0.7);
+   }
+   .button.gradient-button {
+     position: relative;
+     border: 1px ;
+     background: linear-gradient(to right, #7b4397,  #dc2430);
+     color: #fff;
+     opacity: 0.8;
+   }
+   .button.gradient-button:hover{
+     opacity: 1;
+     transform: scale(1);
+   }
+   .button {
+     margin-top: 15px;
+     margin-bottom: 8px;
+     display: inline-block;
+     background: linear-gradient(to right, #7b4397,  #dc2430);
+       color: #fff;
+       font-size: 10px;
+       padding: 3px 12px;
+       letter-spacing: 0.25px;
+       font-weight: 400;
+       border-radius: 25px;
+     
+   }
+   .picture-card{
+     height: 10rem;
+     border: 1px;
+     border-radius: 15px;
+     box-shadow:0 2px 4px 0 rgba(0,0,0,0.2) ;
+     background-image: url("E:\angular\mysapwebpage\src\assets\images\download.jpg");
+    
+   }
+   .text-card{
+     height: fit-content;
+     margin-top: 5px;
+     margin-bottom: 5px;
+     margin-left: 20px;
+     margin-right: 20px;
+     padding: 5px;
+   }
+   .title{
+     font-size: 1rem;
+   }
+   #card-content{
+     font-size: 0.6rem;
+     color: grey;
+   }
+ 
+  .bg{
+    height:18em; 
+    background-size:contain;
+    width:auto;
+    background-color: rgba(23,23,23,0.9);
+    opacity: 1;
+    background-position:50% 50%;
+    box-shadow:inset 0 4px 85px 0 rgba(0,0,0,0.5);
+    background-image: url("E:\angular\mysapwebpage\src\assets\images\download1.jpg");
+    
+  }
+  
+  .headclass{
+      
+      text-align:center;
+      padding-top: 75px;
+      font-family: "Roboto",  sans-serif ;
+      margin-bottom: 10px;
+  }
+  h1 {
+    transition: 0.2s;
+    will-change: font-size;
+    display: inline-block;
+    margin: 0;
+    color: blue;
+    font-weight: 200;
+    font-size: 64px;
+    margin-top: -10px;
+}
+   .app-name{
+    text-align: center;
+    background: linear-gradient(to right, #7b4397,  #dc2430);
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    
+  }
+  p{
+      color: whitesmoke;
+      text-align: center;
+  }
+  #app-content{
+    color: gray;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
