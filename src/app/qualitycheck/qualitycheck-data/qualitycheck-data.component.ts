@@ -31,35 +31,40 @@ import { Component, OnInit } from '@angular/core';
     `.body {
       padding:1px;
       height: 100%;
-      margin-bottom: 5px;
-      background: #353C51;
+      margin-bottom: 0px;
+      background:  rgba(23,23,23,0.6);
       color: whitesmoke;
       font-family: "Roboto",  sans-serif ;
   }
+  .col{
+    -webkit-box-flex: 0;
+      -ms-flex: 0 0 33.333333%;
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+  }
   hr{
     
-    background:  linear-gradient(-45deg, #57cfb0, #2ab5d3);
+    background: linear-gradient(to right, #7b4397,  #dc2430);
     margin:1px;
     box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
     border: 0px;
     height: 1px;
 }
 .c-top{
-    background: #353C51;
+    background:  rgba(23,23,23,0.6);
 }
     .headclass{
     
       text-align:center;
-      padding: 40px;
+      padding: 90px;
       font-family: "Roboto",  sans-serif ;
-      background-color: #353C51;
+      background-color:  rgba(23,23,23,0.6);
       margin-bottom: 10px;
   }
   h2{
       color: whitesmoke;
      
-  }
-    a{
+  }a{
       text-decoration: none;
       color:  whitesmoke;
       background: #353C51;
@@ -69,12 +74,7 @@ import { Component, OnInit } from '@angular/core';
   p{
     color: whitesmoke;
 }
-.col{
-  -webkit-box-flex: 0;
-    -ms-flex: 0 0 33.333333%;
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
-}
+ 
 
 .img-fluid {
     opacity: 1;
@@ -84,6 +84,11 @@ import { Component, OnInit } from '@angular/core';
     transition: .5s ease;
     backface-visibility: hidden;
   }
+  .container{
+    padding: 0px 0px;
+    margin-bottom: 11.6%;
+    margin-top: 10%;
+  }
   .card {
     /* Add shadows to 0 create the "card" effect */
    margin-top:0px;
@@ -91,23 +96,19 @@ import { Component, OnInit } from '@angular/core';
    margin-right:20px;
    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    background: #353C51;
+    background:  rgba(23,23,23,0.7);;
   }
   
   /* On mouse-over, add a deeper shadow */
   .card:hover {
-    background: linear-gradient(-45deg, #57cfb0, #2ab5d3);
+    background: linear-gradient(to right, #7b4397,  #dc2430);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
     opacity: 0.7;
   }
   .card:hover p{
       opacity: 0.5;
   }
-  .container{
-    padding: 0px 0px;
-    margin-bottom: 11.6%;
-    margin-top: 10%;
-  }
+  
   .zoom {
     transition: transform .2s; /* Animation */
     padding:10px;

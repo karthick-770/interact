@@ -1,0 +1,98 @@
+
+<div class="body">
+    <div class="container-fluid">
+        <div class="card card-container">
+            
+                    <div class="row">
+                       <div class="col">
+                            <h4></h4>
+                            
+                            <div class=" hovercard">   
+                               
+                                <div class="avatar">
+                                    <img src="assets/images/loginimg.png">
+                                </div>
+                                <h2> Request For Leave </h2>
+                                <div class="alert alert-danger" *ngIf="errorMsg">
+                                    {{errorMsg}}
+                                  </div>
+                         <form class="form-empleaverequest"  #empleaverequestForm="ngForm"  *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>    
+                            <span id="reauth-userid" class="reauth-userid"></span>
+                            <h3>FROM:</h3>
+                               <input type="text" required autofocus #name="ngModel" 
+                                 [class.is-invalid]="name.invalid && name.touched"
+                                 id="name" class="form-control" 
+                                 placeholder="Your name" name="name"  
+                                 [(ngModel)]= "EmployeeleaverequestModel.name">
+                                 <small class ="text-danger"[class.d-none]="name.valid || name.untouched">name is required!</small>
+
+                            <h3>TO:</h3>
+                              <input type="text" required autofocus #hrname="ngModel" 
+                                 [class.is-invalid]="hrname.invalid && hrname.touched"
+                                 id="hrname" class="form-control" 
+                                 placeholder="Human Resource Name" name="hrname"  
+                                 [(ngModel)]= "EmployeeleaverequestModel.hrname">
+                                 <small class ="text-danger"[class.d-none]="hrname.valid || hrname.untouched"> Hr Name is required!</small>
+                            <h3>SUBJECT:</h3>
+                                <input type="text" required autofocus #purpose="ngModel" 
+                                     [class.is-invalid]="purpose.invalid && purpose.touched"
+                                     id="purpose" class="form-control" 
+                                      placeholder="Purpose of Leave" name="purpose"  
+                                     [(ngModel)]= "EmployeeleaverequestModel.purpose">
+                                   <small class ="text-danger"[class.d-none]="purpose.valid || purpose.untouched">purpose of leave  is required!</small>
+                            
+                     
+                               <input type="text" required autofocus #noofdays="ngModel" 
+                                     [class.is-invalid]="noofdays.invalid && noofdays.touched"
+                                      id="noofdays" class="form-control" 
+                                      placeholder="No of days Leave Required" name="noofdays"  
+                                      [(ngModel)]= "EmployeeleaverequestModel.noofdays">
+                                       <small class ="text-danger"[class.d-none]="noofdays.valid || noofdays.untouched">NO of Days Leave is required!</small>
+                            
+                               
+                             <input type="text" required autofocus #from="ngModel" 
+                                [class.is-invalid]="from.invalid && from.touched"
+                                id="from" class="form-control" 
+                                 placeholder="from date format-{ddmmyyyy} **no special characters**" name="from"  
+                                [(ngModel)]= "EmployeeleaverequestModel.from">
+                              <small class ="text-danger"[class.d-none]="from.valid || from.untouched">Mention your Gender !</small>
+                            
+                             
+                            
+                                <input type="text" required autofocus #to="ngModel" 
+                                     [class.is-invalid]="to.invalid && to.touched"
+                                     id="to" class="form-control" 
+                                      placeholder="To date format-{ddmmyyyy} **no special characters**" name="to"  
+                                     [(ngModel)]= "EmployeeleaverequestModel.to">
+                                   <small class ="text-danger"[class.d-none]="to.valid || to.untouched">To date  is required!</small>
+
+                                    
+
+                                <input type="text" required autofocus #leavetype="ngModel" 
+                                 [class.is-invalid]="leavetype.invalid && leavetype.touched"
+                                 id="leavetype" class="form-control" 
+                                 placeholder="leavetype-{cl-casual leave,sl-sick leave....}" name="leavetype"  
+                                 [(ngModel)]= "EmployeeleaverequestModel.leavetype">
+                                 <small class ="text-danger"[class.d-none]="leavetype.valid || leavetype.untouched">Type of Leave is required!</small>    
+                            
+                               
+                            
+                            <!-- Split button -->
+                            <button [disabled] =" empleaverequestForm.form.invalid" class="btn btn-lg btn-primary btn-block btn-request" type="submit">Request</button>
+                     </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    	
+
+            
+
+               
+                
+                
+               
+           

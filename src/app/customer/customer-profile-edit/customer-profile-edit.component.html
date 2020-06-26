@@ -1,0 +1,85 @@
+
+<div class="body">
+    <div class="container-fluid">
+        <div class="card card-container">
+            
+                    <div class="row">
+                       <div class="col">
+                            <h4></h4>
+                            
+                            <div class=" hovercard">   
+                               
+                                <div class="avatar">
+                                    <img src="assets/images/loginimg.png">
+                                </div>
+                                <p id="profile-name" class="profile-name-card"> Update Employee Details </p>
+                                <div class="alert alert-danger" *ngIf="errorMsg">
+                                    {{errorMsg}}
+                                  </div>
+                         <form class="form-editemployee"  #employeeprofileeditForm="ngForm"  *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>    
+                            <span id="reauth-userid" class="reauth-userid"></span>
+                            <input type="text" required autofocus #location="ngModel" 
+                                 [class.is-invalid]="location.invalid && location.touched"
+                                 id="location" class="form-control" 
+                                 placeholder="area,district" name="location"  
+                                 [(ngModel)]= "EmployeeprofileeditModel.location">
+                                 <small class ="text-danger"[class.d-none]="location.valid || location.untouched">location is required!</small>                              
+
+                              
+                          
+                                <input type="text" required autofocus #empname="ngModel" 
+                                     [class.is-invalid]="empname.invalid && empname.touched"
+                                     id="empname" class="form-control" 
+                                      placeholder="Employee name" name="empname"  
+                                     [(ngModel)]= "EmployeeprofileeditModel.empname">
+                                   <small class ="text-danger"[class.d-none]="empname.valid || empname.untouched">Employee name is required!</small>
+                            
+                               
+                            
+                            
+                                <input type="text" required autofocus #empage="ngModel" 
+                                [class.is-invalid]="empage.invalid && empage.touched"
+                                id="empage" class="form-control" 
+                                 placeholder="Employee age" name="empage"  
+                                [(ngModel)]= "EmployeeprofileeditModel.empage">
+                              <small class ="text-danger"[class.d-none]="empage.valid || empage.untouched">Employee age is required!</small>
+                            
+                                
+                            
+                                <input type="text" required autofocus #empgender="ngModel" 
+                                [class.is-invalid]="empgender.invalid && empgender.touched"
+                                id="empgender" class="form-control" 
+                                 placeholder="Employee Gender" name="empgender"  
+                                [(ngModel)]= "EmployeeprofileeditModel.empgender">
+                              <small class ="text-danger"[class.d-none]="empgender.valid || empgender.untouched">Mention your Gender !</small>
+                            
+                             
+                            
+                                <input type="text" required autofocus #empcontact="ngModel" 
+                                     [class.is-invalid]="empcontact.invalid && empcontact.touched"
+                                     id="empcontact" class="form-control" 
+                                      placeholder="Employee contact" name="empcontact"  
+                                     [(ngModel)]= "EmployeeprofileeditModel.empcontact">
+                                   <small class ="text-danger"[class.d-none]="empcontact.valid || empcontact.untouched">Employee contact is required!</small>
+                            
+                               
+                            
+                            <!-- Split button -->
+                            <button [disabled] =" employeeprofileeditForm.form.invalid" class="btn btn-lg btn-primary btn-block btn-update" type="submit">update</button>
+                     </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    	
+
+            
+
+               
+                
+                
+               
+           

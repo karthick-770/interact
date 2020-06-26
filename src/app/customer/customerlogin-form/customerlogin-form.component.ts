@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Clogin } from '../../clogin';
  import{LoginService} from '../../login.service';
+ import{ Router} from '@angular/router'
 @Component({
   selector: 'app-customerlogin-form',
   template:
@@ -198,21 +199,61 @@ export class CustomerloginFormComponent implements OnInit {
     customerModel = new Clogin( '','');
      errorMsg = '';
     submitted = false;
-  constructor(private _loginService:LoginService) { }
+  constructor(private _loginService:LoginService,private router:Router) { }
   
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
+  onSubmit(){ 
       console.log(this.customerModel)
      this.submitted = true; 
-     this._loginService.login(this.customerModel)
-     .subscribe(
-         data => console.log('success!',data),
-         error => this.errorMsg = error.statusText
-         
-     )
-
+     
+     let custid = this.customerModel.userid;
+     let pwd = this.customerModel.password;
+       /* let button = (document.querySelector('#search') as HTMLButtonElement);
+        let para = (document.querySelector('#hello') as HTMLParagraphElement);*/
+        console.log(custid,pwd);
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+      
+      const raw = JSON.stringify({customerid: custid,customerpwd: pwd});
+      const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+      
+    };
+       this._loginService.customerLogin(requestOptions).then((response)=>{
+         response.json().then((result)=>{
+           console.log(result);
+           if (result.response == 'success')
+           {
+             this.router.navigateByUrl('customerlogin/customer');
+             this._loginService.setLogggedIn(true);
+             
+           }
+           else
+           {
+             this.errorMsg = result.response;
+             this.router.navigateByUrl('/customerlogin');
+             //localStorage.removeItem('loggedIn');
+           }
+           error => this.errorMsg = error.statusText
+          // para.textContent = `${result.vendorAddr} is the vendor address, and his name is ${result.vendorName}`;
+         })
+       })
+        
+        /*this._loginService.getData(requestOptions).then((response) =>{
+          response.json().then((result)=>{
+            console.log(result);
+            console.log(result.response.rollno);
+        })
+      })*/
+    
+    }
   }
-}
+
+  
+

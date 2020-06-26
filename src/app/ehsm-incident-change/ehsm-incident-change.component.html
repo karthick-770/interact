@@ -1,0 +1,139 @@
+
+<div class="body">
+    <div class="container-fluid">
+        <div class="card card-container">
+            
+                    <div class="row">
+                       <div class="col">
+                            <h4></h4>
+                            
+                            <div class=" hovercard">   
+                               
+                                <div class="avatar">
+                                    <img src="assets/images/loginimg.png">
+                                </div>
+                                <p id="profile-name" class="profile-name-card"> Change Incident </p>
+                                <div class="alert alert-danger" *ngIf="errorMsg">
+                                    {{errorMsg}}
+                                  </div>
+                         <form class="form-changeIncident"  #ehsmincidentchangeForm="ngForm"  *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>    
+                            <span id="reauth-userid" class="reauth-userid"></span>
+                            <input type="text" required autofocus #incidentid="ngModel" 
+                                 [class.is-invalid]="incidentid.invalid && incidentid.touched"
+                                 id="incidentid" class="form-control" 
+                                 placeholder="incident id" name="incidentid"  
+                                 [(ngModel)]= "EhsmIncidentChangeModel.incidentid">
+                                 <small class ="text-danger"[class.d-none]="incidentid.valid || incidentid.untouched">location is required!</small>                              
+
+                                
+                              
+                                 <input type="text" required autofocus #incidenttitle="ngModel" 
+                                 [class.is-invalid]="incidenttitle.invalid && incidenttitle.touched"
+                                 id="incidenttitle" class="form-control" 
+                                 placeholder="incident title" name="incidenttitle"  
+                                 [(ngModel)]= "EhsmIncidentChangeModel.incidenttitle">
+                                 <small class ="text-danger"[class.d-none]="incidenttitle.valid || incidenttitle.untouched">location is required!</small>
+                            
+                             
+                            
+                                 <input type="text" required autofocus #incidentdesc="ngModel" 
+                                 [class.is-invalid]="incidentdesc.invalid && incidentdesc.touched"
+                                 id="incidentdesc" class="form-control" 
+                                 placeholder="incident description" name="incidentdesc"  
+                                 [(ngModel)]= "EhsmIncidentChangeModel.incidentdesc">
+                                 <small class ="text-danger"[class.d-none]="incidentdesc.valid || incidentdesc.untouched">location is required!</small>
+                            
+                          
+                                 <input type="text" required autofocus #incidentcat="ngModel" 
+                                 [class.is-invalid]="incidentcat.invalid && incidentcat.touched"
+                                 id="incidentcat" class="form-control" 
+                                 placeholder="incident catagory-{}" name="incidentcat"  
+                                 [(ngModel)]= "EhsmIncidentChangeModel.incidentcat">
+                                 <small class ="text-danger"[class.d-none]="incidentcat.valid || incidentcat.untouched">location is required!</small>
+                            
+                               
+                            
+                            
+                                 <input type="text" required autofocus #incidentgrp="ngModel" 
+                                 [class.is-invalid]="incidentgrp.invalid && incidentgrp.touched"
+                                 id="incidentgrp" class="form-control" 
+                                 placeholder="incident group-{}" name="incidentgrp"  
+                                 [(ngModel)]= "EhsmIncidentChangeModel.incidentgrp">
+                                 <small class ="text-danger"[class.d-none]="incidentgrp.valid || incidentgrp.untouched">location is required!</small>
+                            
+                                
+                               
+                                 <input type="text" required autofocus #plantid="ngModel" 
+                                 [class.is-invalid]="plantid.invalid && plantid.touched"
+                                 id="plantid" class="form-control" 
+                                 placeholder="plant id" name="plantid"  
+                                 [(ngModel)]= "EhsmIncidentChangeModel.plantid">
+                                 <small class ="text-danger"[class.d-none]="plantid.valid || plantid.untouched">location is required!</small>
+
+
+                                 <input type="text" required autofocus #address="ngModel" 
+                                 [class.is-invalid]="address.invalid && address.touched"
+                                 id="address" class="form-control" 
+                                 placeholder="address" name="address"  
+                                 [(ngModel)]= "EhsmIncidentChangeModel.address">
+                                 <small class ="text-danger"[class.d-none]="address.valid || address.untouched">location is required!</small>
+
+
+                                 <input type="text" required autofocus #incidentdate="ngModel" 
+                                 [class.is-invalid]="incidentdate.invalid && incidentdate.touched"
+                                 id="incidentdate" class="form-control" 
+                                  placeholder="incident date" name="incidentdate"  
+                                 [(ngModel)]= "EhsmIncidentChangeModel.incidentdate">
+                               <small class ="text-danger"[class.d-none]="incidentdate.valid || incidentdate.untouched">Employee contact is required!</small>
+
+
+                               <input type="text" required autofocus #incidenttime="ngModel" 
+                               [class.is-invalid]="incidenttime.invalid && incidenttime.touched"
+                               id="incidenttime" class="form-control" 
+                                placeholder="incident time" name="incidenttime"  
+                               [(ngModel)]= "EhsmIncidentChangeModel.incidenttime">
+                             <small class ="text-danger"[class.d-none]="incidenttime.valid || incidenttime.untouched">Employee contact is required!</small>
+
+
+                             <input type="text" required autofocus #reportingperson="ngModel" 
+                             [class.is-invalid]="reportingperson.invalid && reportingperson.touched"
+                             id="reportingperson" class="form-control" 
+                              placeholder="reporting person" name="reportingperson"  
+                             [(ngModel)]= "EhsmIncidentChangeModel.reportingperson">
+                           <small class ="text-danger"[class.d-none]="reportingperson.valid || reportingperson.untouched">Employee contact is required!</small>
+
+
+                           <input type="text" required autofocus #reportingdate="ngModel" 
+                           [class.is-invalid]="reportingdate.invalid && reportingdate.touched"
+                           id="reportingdate" class="form-control" 
+                            placeholder="reporting date" name="reportingdate"  
+                           [(ngModel)]= "EhsmIncidentChangeModel.reportingdate">
+                         <small class ="text-danger"[class.d-none]="reportingdate.valid || reportingdate.untouched">Employee contact is required!</small>
+
+                         <input type="text" required autofocus #reportingtime="ngModel" 
+                         [class.is-invalid]="reportingtime.invalid && reportingtime.touched"
+                         id="reportingtime" class="form-control" 
+                          placeholder="reporting time" name="reportingtime"  
+                         [(ngModel)]= "EhsmIncidentChangeModel.reportingtime">
+                       <small class ="text-danger"[class.d-none]="reportingtime.valid || reportingtime.untouched">Employee contact is required!</small>
+
+                       
+                            <!-- Split button -->
+                            <button [disabled] ="ehsmincidentchangeForm.form.invalid" class="btn btn-lg btn-primary btn-block btn-update" type="submit">Change</button>
+                     </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    	
+
+            
+
+               
+                
+                
+               
+           

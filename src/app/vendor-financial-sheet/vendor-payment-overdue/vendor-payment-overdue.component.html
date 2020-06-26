@@ -1,0 +1,218 @@
+
+    <div class="container-fluid">
+        <div class="card card-container">
+            <!--***********************************filter date*************************************************************************************-->
+            <h1>Payment Overdue<span class="alignright"><button type="button" class=" btn btn-request po" data-toggle="modal" data-target="#Mysmallmodal">Filter By Date</button></span></h1>
+            <div class="modal " id="Mysmallmodal" >
+              <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                      <div class="modal-content1">
+                      <div class="modal-header">
+                          <p class="modal-title">
+                             select date
+                          </p>   
+                          <button  type="button" class="close" data-dismiss="modal">
+                              &times;
+                          </button> 
+                                                                                   
+                      </div> 
+                      <div class="modal-body">
+                          <form class="form-signin"  #getdateForm="ngForm"  *ngIf="!submitted"  novalidate>
+                            <p> start date:
+                              <input type="date" required autofocus #startdate="ngModel" 
+                              [class.is-invalid]="startdate.invalid && startdate.touched"
+                                id="startdate" class="form-control" 
+                                 placeholder="start date" name="startdate"  
+                                    [(ngModel)]= "dateModel.startdate">
+                                      <small class ="text-danger"[class.d-none]="startdate.valid || startdate.untouched">start date is required!</small>
+                                   </p>
+                                   <p>
+                                      end date:
+                              <input type="date" required #enddate="ngModel"
+                                [class.is-invalid]="enddate.invalid && enddate.touched"
+                                    id="enddate" class="form-control" placeholder="end date" 
+                                        name="enddate"  [(ngModel)]= "dateModel.enddate">
+                               <small class ="text-danger"[class.d-none]="enddate.valid || enddate.untouched">End date is required!</small>
+                           </p>
+                            
+                             
+                          </form><!-- /form -->
+                      </div>   
+                      <div class="modal-footer">
+                        <button  class="btn btn-lg btn-primary btn-block btn-request po" type="submit"  data-dismiss="modal" (click)="refresh()" >cancel</button> 
+                          <button  class="btn btn-lg btn-primary btn-block btn-request po" type="submit"  data-dismiss="modal" (click)="filterByDate()" >submit</button> 
+                                                          
+                      </div>
+                  </div>
+                  </div>                                                                       
+              </div>                                      
+          </div>
+          <!--***********************************************************************************************************************************************-->
+         <ng-container>
+           <div class="row" *ngIf = "!datesubmitted; else other_content">
+              <div class="col-sm-3 text-center" *ngFor="let item of ItemsArray" >
+                <fa-icon class = "normal"[icon]="['fas', 'file-alt']" size="6x"  data-toggle="modal" data-target="#MyPomodal" ></fa-icon>
+                <div></div>
+              </div>
+           </div>
+           <ng-template #other_content >
+                 <div class="row">
+                     <div class="col-sm-3 text-center" *ngFor="let item of ItemsArray" >
+                         <div *ngIf = "checkDate(item.DOC_DATE._text)">
+                             <fa-icon class = "normal"[icon]="['fas', 'file-alt']" size="6x"  data-toggle="modal" data-target="#MyPomodal" ></fa-icon>
+                             <div></div>
+                         </div>
+                     </div>
+                 </div>
+           </ng-template>
+         </ng-container>
+         <div class="modal " id="MyPomodal" >
+           <div class="modal-dialog modal-lg"  >
+               <div class="modal-content">
+                   
+                   <div class="modal-header">
+                       <p class="modal-title">
+                          Interact 
+                       </p>   
+                       <button  type="button" class="close" data-dismiss="modal">
+                           &times;
+                       </button> 
+                                                                                
+                   </div> 
+                   <ng-container *ngFor="let item of ItemsArray">
+                   <div class="modal-body" ><!--*ngIf="item.PO_DOCNO._text == this.doc_no"-->
+                      <div class="row">
+                      <div class="col-sm-6">
+           
+                      </div>
+                      <div class="col-sm-6">
+                      <p><span class="text-md-left font-weight-bold">Payment Overdue NO</span><span class="alignright font-weight-bold">#</span></p>
+                      <p><span class="text-sm-left ">RFQ Date</span><span class="alignright"></span></p>
+                      <p><span class="text-sm-left ">Payment Terms</span><span class="alignright">Net</span></p>
+                      <p><span class="text-sm-left ">Shipping Methods</span><span class="alignright"></span></p>
+                      <p><span class="text-sm-left ">Promise Date</span><span class="alignright"></span></p>
+                      </div>
+                   </div>
+                 
+                   <div class="row">
+                      <div class="col-sm-6">
+                       <p class="text-sm-left">BILL TO </p>
+                       <p class="text-md-left font-weight-bold"></p>
+                       <p class="text-sm-left "></p>
+                       <p class="text-sm-left "></p>
+                       <p class="text-sm-left "></p>
+                       <p class="text-sm-left "> </p>
+                      </div>
+                   </div>
+                   <div class="row">
+                    <div class="col-sm-6">
+                     <p class="text-sm-left">VENDOR #</p>
+                     <p class="text-md-left font-weight-bold">COMPANY CODE #</p>
+                     <p class="text-sm-left "></p>
+                     <p class="text-sm-left "></p>
+                     <p class="text-sm-left "></p>
+                     <p class="text-sm-left "> </p>
+                    </div>
+                    <div class="col-sm-6">
+                       <p class="text-sm-left">SHIP TO</p>
+                       <p class="text-md-left font-weight-bold"></p>
+                       <p class="text-sm-left "></p>
+                       <p class="text-sm-left "></p>
+                       <p class="text-sm-left "></p>
+                       <p class="text-sm-left "></p>
+                      </div>
+                 </div>
+                 <table class="table  table-hover w-auto table-responsive" id='table'>
+                  <caption>list of payment overdues</caption>
+                  <thead>
+                     <tr>
+                        <th>VENDOR ID</th>
+                        <th>CUSTOMER ID</th>
+                        
+                        <th>BANK</th>
+                        <th>CURRENCY</th>
+                        <th>TOTAL AMOUNT</th>
+                        <th>AMOUNT PAID</th>
+                        <th>BALANCE DUE</th>
+                        <th>KEY DATE</th>
+                        <th>BASELINE DATE FOR PAYMENT</th>
+                        <th>DUE DATE FOR NET PAYMENT</th>
+                        <th>DAYS IN ARREARS</th>
+                        <th>DOCUMENT DATE</th>
+                        <th>PAYMENT TERM 1</th>
+                        <th>PAYMENT TERM 2</th>
+                        <th>NET TERM FOR PAAYMENT</th>
+                        <th>DAYS OVERDUE</th>
+                        <th>PAYEE NAME</th>
+                        <th>PAYEE POSTAL CODE</th>
+                        <th>PAYEE CITY</th>
+                        <th>PAYEE COUNTRY</th>
+                        <th>PAYEE ACCOUNT.NO</th>
+                        <th>PAYEE POSTAL CODE</th>
+                       
+
+                     </tr>
+                  </thead>
+                   <tbody>
+                    <ng-container *ngFor="let item of ItemsArray">
+                     <tr *ngFor="let item of ItemsArray">
+                        <th>{{ item.VEN_ID._text }}</th>
+                        <th>{{ item.CUST_ID._text }}</th>
+                        
+                        <td>{{ item.BANK._text }}</td>
+                        <td>{{ item.CURRENCY_KEY._text }}</td>
+                        <td>{{ item.TOTAL_AMOUNT._text}}</td>
+                        <td>{{ item.AMOUNT_PAID._text }}</td>
+                        <td>{{ item.BALANCE_DUE._text }}</td>
+                        <td>{{ item.KEY_DATE._text }}</td>
+                        <td>{{ item.BASELINE_DATE._text }}</td>
+                        <td>{{ item.DUE_DATE._text}}</td>
+                        <td>{{ item.DAYS_ARREARS._text }}</td>
+                        <td>{{ item.DOC_DATE._text }}</td>
+                        <td>{{ item.PAYMENT_TERM1._text }}</td>
+                        <td>{{ item.PAYMENT_TERM2._text }}</td>
+                        <td>{{ item.NET_TERM._text }}</td>
+                        <td>{{ item.DAYS_OVERDUE._text }}</td>
+                        <td>{{ item.PAYEE_NAME._text }}</td>
+                        <td>{{ item.PAYEE_POSTALCODE._text }}</td>
+                        <td>{{ item.PAYEE_CITY._text }}</td>
+                        <td>{{ item.PAYEE_COUNTRY._text }}</td>
+                        <td>{{ item.PAYEE_ACCNO._text }}</td>
+                        <td>{{ item.PAYEE_POSTALCODE._text }}</td>
+                        
+
+                        
+                     </tr>
+                   </ng-container>
+                   </tbody>
+                </table>
+                <div class="row">
+                 <div class="col-sm-6">
+                  <p><span class="text-md-left font-weight-bold">NOTE:</span></p>
+                  <p><span class="text-sm-left">The amount on the Purchase Order is the agreed fixed price and shall
+                     not be exceeded without advanced written consent from the bill to contact identified on the Order.
+                  </span></p>
+                 </div>
+                 <div class="col-sm-6">
+                  <p><span class="text-sm-left font-weight-bold">Subtotal</span><span class="alignright ">1854.99</span></p>
+                  <p><span class="text-sm-left font-weight-bold">Discount(%)</span><span class="alignright"></span></p>
+                  <p><span class="text-sm-left font-weight-bold">Frieght</span><span class="alignright">11.70</span></p>
+                  <p><span class="text-sm-left font-weight-bold">Tax(%)</span><span class="alignright"></span></p>
+                  <p id="totalcost"><span class="text-md-left font-weight-bold" >Total Cost</span><span class="alignright"></span></p>
+                    </div>
+              </div>
+              <p><span class="text-sm-left">Payment Overdue no #</span><span class="alignright ">Powered by Kaar Technologies</span></p>
+                   </div>  
+
+                 </ng-container>
+                   <div class="modal-footer">
+                       <button  class="btn btn-lg btn-primary btn-block btn-request po" type="submit"  data-dismiss="modal"  >close</button> 
+                                                       
+                   </div>
+               
+               </div>                                                                       
+           </div>                                      
+       </div>
+           
+    </div>
+</div>

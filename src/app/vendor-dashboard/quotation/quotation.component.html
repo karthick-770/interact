@@ -1,0 +1,191 @@
+
+    <div class="container-fluid">
+        <div class="card card-container">
+           <!--***********************************filter date*************************************************************************************-->
+           <h1>Quotation<span class="alignright"><button type="button" class=" btn btn-request po" data-toggle="modal" data-target="#Mysmallmodal">Filter By Date</button></span></h1>
+                <div class="modal " id="Mysmallmodal" >
+                  <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+                          <div class="modal-content1">
+                          <div class="modal-header">
+                              <p class="modal-title">
+                                 select date
+                              </p>   
+                              <button  type="button" class="close" data-dismiss="modal">
+                                  &times;
+                              </button> 
+                                                                                       
+                          </div> 
+                          <div class="modal-body">
+                              <form class="form-signin"  #getdateForm="ngForm"  *ngIf="!submitted"  novalidate>
+                                <p> start date:
+                                  <input type="date" required autofocus #startdate="ngModel" 
+                                  [class.is-invalid]="startdate.invalid && startdate.touched"
+                                    id="startdate" class="form-control" 
+                                     placeholder="start date" name="startdate"  
+                                        [(ngModel)]= "dateModel.startdate">
+                                          <small class ="text-danger"[class.d-none]="startdate.valid || startdate.untouched">start date is required!</small>
+                                       </p>
+                                       <p>
+                                          end date:
+                                  <input type="date" required #enddate="ngModel"
+                                    [class.is-invalid]="enddate.invalid && enddate.touched"
+                                        id="enddate" class="form-control" placeholder="end date" 
+                                            name="enddate"  [(ngModel)]= "dateModel.enddate">
+                                   <small class ="text-danger"[class.d-none]="enddate.valid || enddate.untouched">End date is required!</small>
+                               </p>
+                                
+                                 
+                              </form><!-- /form -->
+                          </div>   
+                          <div class="modal-footer">
+                            <button  class="btn btn-lg btn-primary btn-block btn-request po" type="submit"  data-dismiss="modal" (click)="refresh()" >cancel</button> 
+                              <button  class="btn btn-lg btn-primary btn-block btn-request po" type="submit"  data-dismiss="modal" (click)="filterByDate()" >submit</button> 
+                                                              
+                          </div>
+                      </div>
+                      </div>                                                                       
+                  </div>                                      
+              </div>
+              <!--***********************************************************************************************************************************************-->
+             <ng-container>
+               <div class="row" *ngIf = "!datesubmitted; else other_content">
+                  <div class="col-sm-3 text-center" *ngFor="let item of ItemsArray" >
+                    <fa-icon class = "normal"[icon]="['fas', 'file-alt']" size="6x" (click)="data(item.QUOTATION_NO._text)" data-toggle="modal" data-target="#MyPomodal" ></fa-icon>
+                    <div>{{item.QUOTATION_NO._text}}</div>
+                  </div>
+               </div>
+               <ng-template #other_content >
+                     <div class="row">
+                         <div class="col-sm-3 text-center" *ngFor="let item of ItemsArray" >
+                             <div *ngIf = "checkDate(item.RFQ_DATE._text)">
+                                 <fa-icon class = "normal"[icon]="['fas', 'file-alt']" size="6x" (click)="data(item.QUOTATION_NO._text)" data-toggle="modal" data-target="#MyPomodal" ></fa-icon>
+                                 <div>{{item.QUOTATION_NO._text}}</div>
+                             </div>
+                         </div>
+                     </div>
+               </ng-template>
+             </ng-container>
+             <div class="modal " id="MyPomodal" >
+               <div class="modal-dialog modal-lg"  >
+                   <div class="modal-content">
+                       
+                       <div class="modal-header">
+                           <p class="modal-title">
+                              Interact 
+                           </p>   
+                           <button  type="button" class="close" data-dismiss="modal">
+                               &times;
+                           </button> 
+                                                                                    
+                       </div> 
+                       <ng-container *ngFor="let item of ItemsArray">
+                       <div class="modal-body" *ngIf="item.QUOTATION_NO._text == this.doc_no">
+                          <div class="row">
+                          <div class="col-sm-6">
+               
+                          </div>
+                          <div class="col-sm-6">
+                          <p><span class="text-md-left font-weight-bold">QUOTATION NO</span><span class="alignright font-weight-bold">#{{item.QUOTATION_NO._text}}</span></p>
+                          <p><span class="text-sm-left ">RFQ Date</span><span class="alignright"></span></p>
+                      <p><span class="text-sm-left ">Payment Terms</span><span class="alignright">Net</span></p>
+                      <p><span class="text-sm-left ">Shipping Methods</span><span class="alignright"></span></p>
+                      <p><span class="text-sm-left ">Promise Date</span><span class="alignright"></span></p>
+                      </div>
+                   </div>
+                 
+                   <div class="row">
+                      <div class="col-sm-6">
+                       <p class="text-sm-left">BILL TO </p>
+                       <p class="text-md-left font-weight-bold"></p>
+                       <p class="text-sm-left "></p>
+                       <p class="text-sm-left "></p>
+                       <p class="text-sm-left "></p>
+                       <p class="text-sm-left "> </p>
+                      </div>
+                   </div>
+                   <div class="row">
+                    <div class="col-sm-6">
+                     <p class="text-sm-left">VENDOR #</p>
+                     <p class="text-md-left font-weight-bold">COMPANY CODE #</p>
+                     <p class="text-sm-left "></p>
+                     <p class="text-sm-left "></p>
+                     <p class="text-sm-left "></p>
+                     <p class="text-sm-left "> </p>
+                    </div>
+                    <div class="col-sm-6">
+                       <p class="text-sm-left">SHIP TO</p>
+                       <p class="text-md-left font-weight-bold"></p>
+                       <p class="text-sm-left "></p>
+                       <p class="text-sm-left "></p>
+                       <p class="text-sm-left "></p>
+                       <p class="text-sm-left "></p>
+                      </div>
+                 </div>
+                     <table class="table  table-hover w-auto table-responsive" id='table'>
+                        <caption>Purchase orders list for the vendor</caption>
+                        <thead>
+                           <tr>
+                              <th>ID</th>
+                              <th>DATE OF RFQ</th>
+                              <th>RFQ STATUS</th>
+                              <th>PURCHASING ORGANIZATION</th>
+                              <th>PURCHASING GROUP</th>
+                              <th>MATERIAL NO</th>
+                              <th>MATERIAL NAME</th>
+                              <th>MATERIAL QUANTITY</th>
+                              <th>MATERIAL GROUP</th>
+                              
+                              <th>DATE OF DELIVARY</th>
+                          </tr>
+                        </thead>
+                       <tbody>
+                        <ng-container *ngFor="let item of ItemsArray">
+                          <tr *ngIf="item.QUOTATION_NO._text == this.doc_no" >
+                           <th>{{ item.VEN_ID._text }}</th>
+                           <td>{{ item.RFQ_DATE._text }}</td>
+                           <td>{{ item.RFQ_STATUS._text }}</td>
+                           <td>{{ item.PURCHASING_ORG._text }}</td>
+                           <td>{{ item.PURCHASING_GRP._text }}</td>
+                           <td>{{ item.MATNR._text }}</td>
+                           <td>{{ item.MAT_NAME._text }}</td>
+                           <td>{{ item.MAT_QUAN._text }}</td>
+                           <td>{{ item.MAT_GRP._text }}</td>
+                          
+                           <td>{{ item.DELIVERY_DATE._text }}</td>
+                           
+                       </tr>
+                       </ng-container>
+                       </tbody>
+                    </table>
+                    <div class="row">
+                     <div class="col-sm-6">
+                      <p><span class="text-md-left font-weight-bold">NOTE:</span></p>
+                      <p><span class="text-sm-left">The amount on the Purchase Order is the agreed fixed price and shall
+                         not be exceeded without advanced written consent from the bill to contact identified on the Order.
+                      </span></p>
+                     </div>
+                     <div class="col-sm-6">
+                        <p><span class="text-sm-left font-weight-bold">Subtotal</span><span class="alignright ">1854.99</span></p>
+                        <p><span class="text-sm-left font-weight-bold">Discount(%)</span><span class="alignright"></span></p>
+                        <p><span class="text-sm-left font-weight-bold">Frieght</span><span class="alignright">11.70</span></p>
+                        <p><span class="text-sm-left font-weight-bold">Tax(%)</span><span class="alignright"></span></p>
+                        <p id="totalcost"><span class="text-md-left font-weight-bold" >Total Cost</span><span class="alignright"></span></p>
+                        </div>
+                  </div>
+                  <p><span class="text-sm-left">Quotation no #{{item.QUOTATION_NO._text}}</span><span class="alignright ">Powered by Kaar Technologies</span></p>
+                       </div>  
+
+                     </ng-container>
+                       <div class="modal-footer">
+                           <button  class="btn btn-lg btn-primary btn-block btn-request po" type="submit"  data-dismiss="modal"  >close</button> 
+                                                           
+                       </div>
+                   
+                   </div>                                                                       
+               </div>                                      
+           </div>
+
+           
+        </div>
+    </div>

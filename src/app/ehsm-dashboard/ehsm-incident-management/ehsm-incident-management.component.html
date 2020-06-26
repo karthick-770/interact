@@ -1,0 +1,52 @@
+
+    <div class="container-fluid">
+        <div class="card card-container">
+            <div class="table-responsive">
+                <h1>Incident details</h1>
+                <table class="table table-bordered table-hover table-dark ">
+                    <caption>list of incidents</caption>
+                   <thead>
+                      <tr>
+                         
+                         <th>INCIDENT ID</th>
+                         <th>INCIDENT CATAGORY</th>
+                         <th>INCIDENT GROUP</th>
+                         <th>INCIDENT TITLE</th>
+                         <th>INCIDENT DESCRIPRION</th>
+                         <th>PLANT ID</th>
+                         <th>ADDRESS</th>
+                         <th>INCIDENT DATE</th>
+                         <th>INCIDENT TIME </th>
+                         <th>REPORTING PERSON</th>
+                         <th>REPORTING DATE</th>
+                         <th>REPORTING TIME</th>
+                        
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr *ngFor="let item of ItemsArray">
+                         
+                         <td>{{ item.INCIDENT_ID._text }}</td>
+                         <td>{{ item.INCIDENT_CAT._text }}</td>
+                         <td>{{ item.INCIDENT_GRP._text}}</td>
+                         <td>{{ item.INCIDENT_TITLE._text }}</td>
+                         <td>{{ item.INCIDENT_DESC._text }}</td>
+                         <td>{{ item.PLANT_ID._text }}</td>
+                         <td>{{ item.ADDRESS._text }}</td>
+                         <td>{{ item.INCIDENT_DATE._text }}</td>
+                         <td>{{ item.INCIDENT_TIME._text }}</td>
+                         <td>{{ item.REPORTING_PERSON._text }}</td>
+                         <td>{{ item.REPORTING_DATE._text }}</td>
+                         <td>{{ item.REPORTING_TIME._text }}</td>
+                        
+                      </tr>
+                   </tbody>
+                </table>
+                <p>
+                  <button (click)= 'createIncidents()'class =" btn btn-request create">Create Incidents</button>
+                  <button (click)= 'changeIncidents()' class =" btn btn-request change"> Change Incidents</button>
+                  
+              </p>
+             </div>
+        </div>
+    </div>

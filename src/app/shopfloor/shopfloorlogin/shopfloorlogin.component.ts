@@ -17,12 +17,28 @@ export class ShopfloorloginComponent implements OnInit {
   }
   onSubmit(){
     this.submitted = true; 
-   this._loginService.login(this.shopfloorModel)
-   .subscribe(
-       data => console.log('success!',data),
-       error => this.errorMsg = error.statusText
-       
-   )
+    let custid = ((document.getElementById("userid") as HTMLInputElement));
+    let pwd = ((document.getElementById("password") as HTMLInputElement));
+      /* let button = (document.querySelector('#search') as HTMLButtonElement);
+       let para = (document.querySelector('#hello') as HTMLParagraphElement);*/
+       console.log(custid.value,pwd.value);
+       const myHeaders = new Headers();
+       myHeaders.append("Content-Type", "application/json");
+       const id = custid.value;
+       const pswd = pwd.value;
+     const raw = JSON.stringify({customerid: id,customerpwd: pswd});
+     const requestOptions = {
+     method: 'POST',
+     headers: myHeaders,
+     body: raw,
+     redirect: 'follow'
+   };
+      this._loginService.getData(requestOptions).then((response)=>{
+        response.json().then((result)=>{
+          console.log(result);
+         /* para.textContent = `${result.vendorAddr} is the vendor address, and his name is ${result.vendorName}`;*/
+        })
+      })
 
 }
 

@@ -1,0 +1,55 @@
+<div class="body">
+    <div class="container-fluid">
+        <div class="card card-container">
+            <div class="table-responsive">
+                <h1>Employee Salary Slip</h1>
+                <table class="table table-bordered table-hover table-dark ">
+                    <caption>Payslip of the employee</caption>
+                   <thead>
+                      <tr>
+                         <th>ID</th>
+                         <th>NAME</th>
+                         <th>DATE OF PAYMENT</th>
+                         <th>PAY PERIOD</th>
+                         <th>BASIC</th>
+                         <th>HRA</th>
+                         <th>TRANSPORT ALLOWANCE</th>
+                         <th>EDUCATIONAL ALLOWANCE</th>
+                         <th>HOSTEL ALLOWANCE</th>
+                         <th>TRAVEL ALLOWANCE</th>
+                         <th>OTHER ALLOWANCE</th>
+                         <th>LEAVES TAKEN</th>
+                         <th>GROSS SALARY</th>
+                         <th>INSURANCE PREMIUM</th>
+                         <th>PF</th>
+                         <th>GRATUITY</th>
+
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr *ngFor="let item of ItemsArray">
+                         <th>{{ item.id }}</th>
+                         <td>{{ item.name }}</td>
+                         <td>{{ item.dateofpayment }}</td>
+                         <td>{{ item.paymetperiod}}</td>
+                         <td>{{ item.basic }}</td>
+                         <td>{{ item.transport }}</td>
+                         <td>{{ item.education }}</td>
+                         <td>{{ item.hostel }}</td>
+                         <td>{{ item.travel }}</td>
+                         <td>{{ item.other }}</td>
+                         <td>{{ item.leave }}</td>
+                         <td>{{ item.gross }}</td>
+                         <td>{{ item.insurance }}</td>
+                         <td>{{ item.pf }}</td>
+                         <td>{{ item.gratuity }}</td>
+
+                         
+                      </tr>
+                   </tbody>
+                </table>
+               
+             </div>
+        </div>
+    </div>
+</div>

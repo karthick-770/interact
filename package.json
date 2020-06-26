@@ -11,22 +11,36 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^9.0.2",
+    "@angular/animations": "^9.1.11",
+    "@angular/cdk": "^9.2.4",
     "@angular/common": "~9.0.1",
     "@angular/compiler": "~9.0.1",
     "@angular/core": "~9.0.1",
     "@angular/forms": "~9.0.1",
     "@angular/localize": "^9.0.2",
+    "@angular/material": "^9.2.4",
     "@angular/platform-browser": "~9.0.1",
     "@angular/platform-browser-dynamic": "~9.0.1",
     "@angular/router": "~9.0.1",
-    "@ng-bootstrap/ng-bootstrap": "^5.3.0",
+    "@fortawesome/angular-fontawesome": "^0.6.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-brands-svg-icons": "^5.13.0",
+    "@fortawesome/free-regular-svg-icons": "^5.13.0",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@ng-bootstrap/ng-bootstrap": "^5.3.1",
+    "@types/jquery": "^3.3.38",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.0",
     "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "jspdf": "^1.5.3",
     "ngx-soap": "^0.6.3",
     "rxjs": "~6.5.4",
+    "save": "^2.4.0",
     "tslib": "^1.10.0",
     "web-animations-js": "^2.3.2",
+    "xml-js": "^1.6.11",
+    "xml2js": "^0.4.23",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
@@ -49,5 +63,17 @@
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
-  }
+  },
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karthick-770/interact.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karthick-770/interact/issues"
+  },
+  "homepage": "https://github.com/karthick-770/interact#readme",
+  "description": ""
 }

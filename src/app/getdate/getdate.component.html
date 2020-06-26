@@ -1,0 +1,26 @@
+<div class="body">
+    <div class="container-fluid">
+         <div class="card card-container">
+       <form class="form-signin"  #getdateForm="ngForm"  *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+         
+
+        
+           
+           <input type="date" required autofocus #startdate="ngModel" 
+           [class.is-invalid]="startdate.invalid && startdate.touched"
+             id="startdate" class="form-control" 
+              placeholder="start date" name="startdate"  
+                 [(ngModel)]= "dateModel.startdate">
+                   <small class ="text-danger"[class.d-none]="startdate.valid || startdate.untouched">start date is required!</small>
+           <input type="date" required #enddate="ngModel"
+             [class.is-invalid]="enddate.invalid && enddate.touched"
+                 id="enddate" class="form-control" placeholder="end date" 
+                     name="enddate"  [(ngModel)]= "dateModel.enddate">
+            <small class ="text-danger"[class.d-none]="enddate.valid || enddate.untouched">End date is required!</small>
+        
+         
+           <button [disabled] =" getdateForm.form.invalid" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">submit</button>
+       </form><!-- /form -->
+       </div>
+</div>
+</div>   

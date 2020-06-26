@@ -1,0 +1,40 @@
+<div class="body">
+    <div class="container-fluid">
+        <div class="card card-container">
+            <div class="table-responsive">
+                <h1>Employee Leave Records</h1>
+                <table class="table table-bordered table-hover table-dark ">
+                    <caption>list of leaves taken by employee</caption>
+                   <thead>
+                      <tr>
+                         <th>ID</th>
+                         <th>NAME</th>
+                         <th>PURPOSE</th>
+                         <th>NO_OF_DAYS</th>
+                         <th>LEAVE TAKEN FROM</th>
+                         <th>LEAVE TILL</th>
+                         <th>HR NAME</th>
+                         <th>LEAVE TYPE</th>
+                         <th>TOTAL LEAVES</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr *ngFor="let item of ItemsArray">
+                         <th>{{ item.id }}</th>
+                         <td>{{ item.name }}</td>
+                         <td>{{ item.purpose }}</td>
+                         <td>{{ item.noofdays}}</td>
+                         <td>{{ item.from }}</td>
+                         <td>{{ item.to }}</td>
+                         <td>{{ item.hrname }}</td>
+                         <td>{{ item.leavetype }}</td>
+                         <td>{{ item.total }}</td>
+                         
+                      </tr>
+                   </tbody>
+                </table>
+                <button type="submit" class="btn btn-lg btn-primary btn-block btn-request" (click)="requestLeave()">Request Leave</button>
+             </div>
+        </div>
+    </div>
+</div>

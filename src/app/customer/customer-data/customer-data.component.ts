@@ -16,7 +16,7 @@ import { Component, OnInit } from '@angular/core';
       <div class="col">
       <div class="card">
       <div class="zoom">
-        <a rouetrLink="#">
+        <a rouetrLink="./customerprofile">
           <img class="img-fluid  mx-auto d-block " src="assets/images/profileupdate.png" alt="profile update" width="100" height="236">
             <p class="text-center">Profile</p>
         </a>
@@ -26,7 +26,7 @@ import { Component, OnInit } from '@angular/core';
       <div class="col">
       <div class="card">
       <div class="zoom">
-        <a rouetrLink="#">
+        <a rouetrLink="./customerdashboard">
           <img class="img-fluid mx-auto d-block" src="assets/images/dashboard.png" alt="Dashboard" width="100" height="236">
             <p class="text-center">Dashboard</p>
         </a>
@@ -36,7 +36,7 @@ import { Component, OnInit } from '@angular/core';
       <div class="col">
       <div class="card">
       <div class="zoom">
-        <a rouetrLink="#">
+        <a rouetrLink="./customerfinancialsheet">
           <img class="img-fluid mx-auto d-block " src="assets/images/financialsheet.png" alt="Financial Sheet" width="100" height="236"> 
             <p class="text-center">Financial Sheet</p>
         </a>
